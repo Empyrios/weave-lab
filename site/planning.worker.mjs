@@ -1,0 +1,2 @@
+import {simulateMatch} from './simulation.mjs';
+self.onmessage=({data:seeds})=>{try{const records=seeds.map(s=>{try{const r=simulateMatch(s.seed);return {...s,model:r.model,winner:r.winner,moves:r.moves,turns:r.turns,finish:r.reachedMoveCap?'incomplete_action_limit':'completed'}}catch(err){return {...s,finish:'engine_error',error:err.message}}});self.postMessage({ok:true,result:{schema:'weave-seed-bank-results-v1',records,note:'Synthetic regression observations, not pass/fail against a stored baseline.'}})}catch(err){self.postMessage({ok:false,error:err.message})}}

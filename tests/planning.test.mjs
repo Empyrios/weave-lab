@@ -1,0 +1,7 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';
+import {teamSummary,precision,seedEntry,gateStatus} from '../site/planning.mjs';
+test('team composition validates unique IDs and computes base totals',()=>{const r=teamSummary(['fjordfin','craglet','kilnix']);assert.equal(r.baseTotals.hp,340);assert.equal(r.aspects.length,3);assert.throws(()=>teamSummary(['fjordfin','fjordfin','kilnix']));assert.throws(()=>teamSummary(['x','y','z']))});
+test('precision separates decisive from all scheduled denominator',()=>{const r=precision({wins:50,losses:50,draws:10,incomplete:10});assert.equal(r.scheduled,120);assert.equal(r.decisiveWinShare,.5);assert.equal(r.allScheduledWinShare,50/120);assert.ok(r.wilson95.lower<.5&&r.wilson95.upper>.5)});
+test('precision rejects fractions and handles an empty study honestly',()=>{assert.throws(()=>precision({wins:.5,losses:0,draws:0,incomplete:0}));assert.equal(precision({wins:0,losses:0,draws:0,incomplete:0}).wilson95,null)});
+test('seed entries preserve zero and max uint32 and reject overflow',()=>{assert.equal(seedEntry({seed:0,label:'zero',tag:'edge'}).seed,0);assert.equal(seedEntry({seed:4294967295,label:'max',tag:'edge'}).seed,4294967295);assert.throws(()=>seedEntry({seed:4294967296,label:'bad',tag:''}))});
+test('passing gate requires nonempty evidence; empty checklist cannot pass',()=>{assert.equal(gateStatus([{status:'pass',evidence:''}]).ready,false);assert.equal(gateStatus([]).ready,false);assert.equal(gateStatus([{status:'pass',evidence:'test reference'}]).ready,true)});

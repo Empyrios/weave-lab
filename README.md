@@ -110,3 +110,10 @@ The QA register records evidence for all 36 Arts, 12 Traits and cross-kit fixtur
 Private packages use AES-256-GCM with a random salt and IV, PBKDF2-SHA256 at 250,000 iterations and a user passphrase. Share files through a private channel and communicate the passphrase separately. This is portable file exchange, not an authenticated submission server or cloud sync. Studio data uses a separate localStorage key and has its own backup export/import. Back it up before moving devices. No automatic Linear/GitHub issues or private source publication occur.
 
 Exact v0.2 execution remains blocked: the available game main is v0.1.2. No canonical engine, verified kit tests, exact replay reconstruction, automatic action-sequence minimizer or remote private collector is claimed. The private adapter contract and execution harness are ready for a qualifying engine.
+
+## v1.3 Planning & Validation
+
+- Named, tagged uint32 seed bank, backup import/export, main Lab seed loading and worker-driven synthetic bank runs with retained errors and censored outcomes. Results are observations, not baseline regression assertions.
+- Three-species composition summaries, base stat totals, role labels, damage categories, utility Arts and signature resource costs. An isolated first-damaging-Art matrix shows base-form damage coverage; complex effects are excluded.
+- Statistical checker separates decisive, completed and all-scheduled denominators and computes Wilson intervals. Approximate independent sample sizes are explicitly separated from the controlled study's block-bootstrap method.
+- Manual release-readiness checklist requires evidence references for passing gates. It neither certifies gameplay nor unlocks the exact engine gate. Planning data has a separate browser-local backup export.
