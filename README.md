@@ -100,3 +100,13 @@ npm run experiment -- --adapter /absolute/private/adapter.mjs --out runs/canonic
 ```
 
 The app is buildless and portable: host site/ on GitHub Pages or any static HTTPS host. Private Sites hosting is a convenience, not an application dependency. No paid API is used. SHA-256 browser operations require a secure HTTPS context.
+
+## v1.2 Investigation Studio
+
+The Studio provides recorded-state visual replay, synthetic patch testing for HP/ATK/DEF/AP and Thread parameters, ten-partition matchup heatmaps with Wilson intervals, Weaver profiles, Reweave opportunity/death diagnostics, Essence overflow and Bonus Move chain logs. Defensive and setup policies supplement existing policies. They remain heuristic approximations of incomplete kits.
+
+The QA register records evidence for all 36 Arts, 12 Traits and cross-kit fixtures. A local notebook attaches study exports, hypotheses and conclusions. A human stopwatch records real session and decision intervals, separately from synthetic action counts. Reproduction packages capture input configurations, errors and optional full traces. Snapshot traces use `weave-lab-trace-v1`; arbitrary engine reports do not magically gain missing snapshots.
+
+Private packages use AES-256-GCM with a random salt and IV, PBKDF2-SHA256 at 250,000 iterations and a user passphrase. Share files through a private channel and communicate the passphrase separately. This is portable file exchange, not an authenticated submission server or cloud sync. Studio data uses a separate localStorage key and has its own backup export/import. Back it up before moving devices. No automatic Linear/GitHub issues or private source publication occur.
+
+Exact v0.2 execution remains blocked: the available game main is v0.1.2. No canonical engine, verified kit tests, exact replay reconstruction, automatic action-sequence minimizer or remote private collector is claimed. The private adapter contract and execution harness are ready for a qualifying engine.
