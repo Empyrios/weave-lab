@@ -117,3 +117,11 @@ Exact v0.2 execution remains blocked: the available game main is v0.1.2. No cano
 - Three-species composition summaries, base stat totals, role labels, damage categories, utility Arts and signature resource costs. An isolated first-damaging-Art matrix shows base-form damage coverage; complex effects are excluded.
 - Statistical checker separates decisive, completed and all-scheduled denominators and computes Wilson intervals. Approximate independent sample sizes are explicitly separated from the controlled study's block-bootstrap method.
 - Manual release-readiness checklist requires evidence references for passing gates. It neither certifies gameplay nor unlocks the exact engine gate. Planning data has a separate browser-local backup export.
+
+## v1.4 Research Vault
+
+Unified SHA-256-checked backup covers the four explicit browser stores: main settings/evidence, Studio, planning and study history. Imports are staged and inspected before confirmation. Restore replaces managed sections, downloads a recovery file first, reloads in-memory modules and attempts rollback if storage writes fail. Backups are plaintext; hash integrity is not an authenticity signature. In-memory traces and unfinished forms are excluded. New backup versions must be explicitly supported; no guessed migration is performed.
+
+New completed batch, Loom, sensitivity, patch, matchup, trace and seed-bank studies are automatically archived with parameters, model label, app version and time. Forty results are retained, with a 2 MB serialized history limit; a storage failure is surfaced without discarding the completed study output. Trace history contains summary diagnostics only. Results can be filtered, inspected and exported.
+
+The update manager checks a network-only version manifest and lets users apply downloaded updates after confirmation. Future service workers wait for activation; the v1.3-to-v1.4 transition auto-activates once because the older shell has no update UI. Cache deletion is restricted to Weave Lab cache names, and only known in-scope shell assets are cached. This is browser-local continuity, not automatic cloud backup or a guarantee against browser storage eviction.
