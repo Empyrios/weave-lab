@@ -1,0 +1,14 @@
+{
+  "name": "weave-lab",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Version-aware research and balance workbench for Weave",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "check": "node scripts/check.mjs",
+    "verify": "npm run check && npm test",
+    "experiment": "node scripts/run-experiment.mjs",
+    "build": "node scripts/build.mjs"
+  }
+}

@@ -1,0 +1,3 @@
+import {readFileSync,writeFileSync} from 'node:fs';import{resolve,dirname}from'node:path';
+const memo=new Map();function bundle(path){const full=resolve(path);if(memo.has(full))return memo.get(full);let code=readFileSync(full,'utf8');code=code.replace(/(\bfrom\s*['"])(\.\/.+?\.mjs)(['"])/g,(_,a,part,c)=>a+bundle(resolve(dirname(full),part))+c);const url='data:text/javascript;base64,'+Buffer.from(code).toString('base64');memo.set(full,url);return url;}
+const url=bundle(resolve(process.argv[2]||'site/app.mjs'));writeFileSync(resolve('.browser-module-url.txt'),url);console.log('Bundle URL length '+url.length);

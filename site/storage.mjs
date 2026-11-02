@@ -1,0 +1,8 @@
+const KEY='weave-lab:v1';
+export const DEFAULT_SETTINGS={ruleset:'v0.2',seed:12345,formA:'ruklet-1',formB:'craglet-1',ap:40,critical:false,trueDamage:false,shield:0,mode:'physical',legacyAtk:100,legacyDef:100,legacyHp:130,constant:50,simRuns:100,policyA:'balanced',policyB:'balanced',notes:'',light:false};
+export function defaultData(){return {schema:1,settings:{...DEFAULT_SETTINGS},evidence:[],savedExperiments:[],recentReports:[],lastBatch:null}}
+function validDoc(data){return data&&typeof data==='object'&&!Array.isArray(data)&&data.schema===1&&typeof data.settings==='object'&&Array.isArray(data.evidence)&&Array.isArray(data.savedExperiments)&&Array.isArray(data.recentReports)}
+export function readData(storage=globalThis.localStorage){try{const raw=storage.getItem(KEY);if(!raw)return defaultData();const value=JSON.parse(raw);if(!validDoc(value))throw new Error('Invalid saved state');return {...defaultData(),...value,settings:{...DEFAULT_SETTINGS,...value.settings},evidence:value.evidence.slice(0,100),savedExperiments:value.savedExperiments.slice(0,40),recentReports:value.recentReports.slice(0,20)}}catch{return defaultData()}}
+export function writeData(doc,storage=globalThis.localStorage){if(!validDoc(doc))throw new Error('Invalid state');storage.setItem(KEY,JSON.stringify(doc));return true;}
+export function importData(input){const v=typeof input==='string'?JSON.parse(input):input;if(!validDoc(v))throw new Error('Invalid Weave Lab backup');return {...defaultData(),...v,settings:{...DEFAULT_SETTINGS,...v.settings},evidence:v.evidence.slice(0,100),savedExperiments:v.savedExperiments.slice(0,40),recentReports:v.recentReports.slice(0,20)};}
+export function clearData(storage=globalThis.localStorage){storage.removeItem(KEY)}
